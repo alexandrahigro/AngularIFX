@@ -1,0 +1,31 @@
+<form [formGroup]="formularioContacto" (ngSubmit)="submit()" >
+  <p>Nombre:
+    <input type="text" formControlName="nombre">
+    <span *ngIf="this.formularioContacto.get('nombre')">
+      <!--El nombre no puede quedar vacío,-->
+    </span>
+    <span *ngIf="this.formularioContacto.get('nombre')">
+      <!--Debe tener como mínimo 10 caracteres-->
+    </span>
+  </p>
+  <p>Patronus:
+    <input type="text" formControlName="patronus" required>
+    <span *ngIf="this.formularioContacto.get('patronus')">
+      <!--El Patronus no puede quedar vacío,--> 
+    </span>
+    <span *ngIf="this.formularioContacto.get('patronus')">
+      <!--El Patronus no es válido-->
+    </span>
+  </p>
+  <p>Imagen:
+   	<input type="file" formControlName ="imagen" >
+    <span *ngIf="this.formularioContacto.get('imagen')">
+      <!--(La imagen no puede quedar vacía)-->
+    </span>
+    <span *ngIf="this.formularioContacto.get('imagen')">
+      <!--(La imagen no es válida)-->
+    </span>
+  </p>
+  <button type="submit">Registrar</button>
+</form>
+<div>{{resultado}}</div>
